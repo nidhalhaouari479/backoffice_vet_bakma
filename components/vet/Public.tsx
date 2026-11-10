@@ -44,12 +44,6 @@ export function PublicHeader() {
           <Link href="/connexion" className="hidden h-12 items-center gap-2 rounded-full border border-line px-5 text-sm font-semibold text-navy transition hover:border-primary lg:inline-flex">
             <User className="size-5" /> Se connecter
           </Link>
-          <a
-            href={`${SITE}/inscription`}
-            className="hidden h-12 items-center rounded-full bg-gradient-to-b from-[#0e8fb5] to-[#0b6e9e] px-7 text-sm font-semibold text-white shadow-sm transition hover:brightness-110 lg:inline-flex"
-          >
-            S&apos;inscrire
-          </a>
           <Link href="/connexion" className="grid size-11 place-items-center rounded-full bg-primary text-white lg:hidden" aria-label="Compte">
             <User className="size-5" />
           </Link>
@@ -62,9 +56,6 @@ export function PublicHeader() {
               {l.label}
             </a>
           ))}
-          <a href={`${SITE}/inscription`} className="block rounded-xl px-3 py-3 font-semibold text-primary hover:bg-page">
-            S&apos;inscrire
-          </a>
         </nav>
       )}
     </header>

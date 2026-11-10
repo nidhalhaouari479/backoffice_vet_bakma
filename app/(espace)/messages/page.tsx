@@ -209,7 +209,7 @@ function MessagesInner() {
     <div className="mx-auto max-w-[1400px]">
       <PageTitle title="Messages" subtitle="Échangez avec les propriétaires des animaux que vous consultez." />
       <Alert>{error}</Alert>
-      <Card className="grid h-[calc(100vh-260px)] min-h-[480px] overflow-hidden md:grid-cols-[320px_minmax(0,1fr)] lg:h-[calc(100vh-240px)]">
+      <Card className="grid h-[calc(100dvh-300px)] min-h-[480px] overflow-hidden md:grid-cols-[320px_minmax(0,1fr)] md:h-[calc(100dvh-210px)]">
         <div className={cn("flex min-h-0 flex-col border-r border-line", conv && "hidden md:flex")}>
           <div className="border-b border-line p-3">
             <div className="relative">

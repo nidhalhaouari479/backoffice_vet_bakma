@@ -173,16 +173,16 @@ export default function DemandeDetailPage() {
 
   return (
     <div className="mx-auto max-w-[1400px]">
-      <Link href="/demandes" className="mb-3 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
-        <ArrowLeft className="size-4" /> Retour aux demandes
+      <Link href="/demandes" className="mb-2 inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 transition hover:text-navy">
+        <ArrowLeft className="size-3.5" aria-hidden /> Retour aux demandes
       </Link>
 
       <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
         <div>
-          <h1 className="text-2xl font-extrabold tracking-tight sm:text-[32px] sm:leading-tight">
+          <h1 className="text-[22px] font-semibold leading-tight tracking-[-0.02em] text-navy sm:text-[26px]">
             {done ? "Résultat de la consultation" : "Demande de consultation"}
           </h1>
-          <p className="mt-1 text-sm text-body sm:text-base">
+          <p className="mt-1 text-[13.5px] text-slate-500">
             {done
               ? "Rapport vétérinaire et décision transmis à l'administration."
               : "Vérifiez l'état de santé de l'animal et rédigez votre rapport."}

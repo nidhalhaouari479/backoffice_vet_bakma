@@ -3,13 +3,12 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ArrowRight, ClipboardList, Eye, EyeOff, Lock, Mail, PawPrint, ShieldCheck, Stethoscope, UserPlus } from "lucide-react";
+import { ArrowRight, ClipboardList, Eye, EyeOff, Lock, Mail, PawPrint, ShieldCheck, Stethoscope } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { PublicFooter, PublicHeader } from "@/components/vet/Public";
 import { Alert, Button, Field, Input, Modal } from "@/components/ui";
 import { getSupabase, errorMessage } from "@/lib/supabase";
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL || "";
 const VET = process.env.NEXT_PUBLIC_VET_URL || "";
 
 const POINTS = [
@@ -179,20 +178,9 @@ export default function ConnexionPage() {
                 </Button>
               </form>
 
-              <div className="my-6 flex items-center gap-4 text-sm text-body">
-                <span className="h-px flex-1 bg-line" />
-                ou
-                <span className="h-px flex-1 bg-line" />
-              </div>
-
-              <a
-                href={`${SITE}/inscription`}
-                className="flex h-14 w-full items-center justify-center gap-3 rounded-[var(--radius-btn)] border border-primary/40 bg-white text-[15px] font-semibold text-primary transition hover:bg-primary-soft"
-              >
-                <UserPlus className="size-5" /> Créer un compte
-              </a>
-              <p className="mt-3 text-center text-xs text-muted">
-                Les accès vétérinaires sont activés par l&apos;administration de Bakma Store après création de votre compte.
+              {/* Pas d'inscription ici : les comptes vétérinaires sont créés par l'administration (back-office > Vétérinaires). */}
+              <p className="mt-6 rounded-2xl border border-line px-4 py-3 text-center text-sm text-body">
+                Pas encore de compte ? Les comptes vétérinaires sont <strong className="text-navy">créés par l&apos;administration de Bakma Store</strong>, qui vous communique vos identifiants.
               </p>
 
               <div className="mt-6 flex items-center gap-4 rounded-2xl bg-primary-soft/60 p-4">

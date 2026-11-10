@@ -16,23 +16,31 @@ import { ageSex, countByStatus, dayLabel, drName, isRelevant, matchTab, requestD
 
 type Period = "semaine" | "mois" | "tout";
 
+// StatCard du design system : carte blanche, tuile d'icône 36 px colorée selon l'état.
 const KPI_STYLE = {
-  blue: { box: "bg-[#eaf3ff] border-[#d6e7ff]", tile: "bg-white text-primary", text: "text-primary" },
-  orange: { box: "bg-[#fff5e6] border-[#ffe7c2]", tile: "bg-white text-amber-500", text: "text-amber-700" },
-  green: { box: "bg-[#e8f8ee] border-[#c9efd7]", tile: "bg-emerald-500 text-white", text: "text-emerald-700" },
-  red: { box: "bg-[#fdecec] border-[#f9d4d4]", tile: "bg-red-500 text-white", text: "text-red-600" },
+  blue: { tile: "bg-primary-soft text-primary", text: "text-navy" },
+  orange: { tile: "bg-amber-50 text-amber-600", text: "text-amber-700" },
+  green: { tile: "bg-emerald-50 text-emerald-600", text: "text-emerald-700" },
+  red: { tile: "bg-rose-50 text-rose-600", text: "text-rose-600" },
 };
 
 function DashKpi({ icon, value, label, short, tone, href }: { icon: React.ReactNode; value: number; label: string; short: string; tone: keyof typeof KPI_STYLE; href: string }) {
   const s = KPI_STYLE[tone];
   return (
-    <Link href={href} className={cn("flex flex-col rounded-2xl border p-3 transition hover:-translate-y-0.5 hover:shadow-md sm:p-5", s.box)}>
-      <span className={cn("grid size-10 place-items-center rounded-xl shadow-sm sm:size-12 [&>svg]:size-5 sm:[&>svg]:size-6", s.tile)}>{icon}</span>
-      <span className="mt-3 text-2xl font-extrabold leading-none text-navy sm:mt-5 sm:text-[32px]">{value}</span>
-      <span className={cn("mt-1 text-[11px] font-medium sm:text-[15px]", s.text)}>
-        <span className="sm:hidden">{short}</span>
-        <span className="hidden sm:inline">{label}</span>
+    <Link
+      href={href}
+      className="flex flex-col rounded-2xl border border-slate-200/80 bg-white p-3 shadow-[var(--shadow-card)] outline-none transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] focus-visible:ring-2 focus-visible:ring-focus/50 sm:p-5"
+    >
+      <span className="flex items-start justify-between gap-2">
+        <span className="text-xs font-medium text-slate-500 sm:text-[13px]">
+          <span className="sm:hidden">{short}</span>
+          <span className="hidden sm:inline">{label}</span>
+        </span>
+        <span className={cn("grid size-8 shrink-0 place-items-center rounded-xl sm:size-9 [&>svg]:size-4 sm:[&>svg]:size-[18px]", s.tile)} aria-hidden>
+          {icon}
+        </span>
       </span>
+      <span className={cn("mt-1 text-2xl font-semibold leading-none tabular-nums", s.text)}>{value}</span>
     </Link>
   );
 }
@@ -125,12 +133,12 @@ export default function DashboardPage() {
         <div className="min-w-0 space-y-6">
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0">
-              <p className="text-sm font-medium text-body">
+              <p className="mb-1 text-xs font-medium text-slate-500">
                 <span className="sm:hidden">Bonjour</span>
                 <span className="hidden sm:inline">Bienvenue</span>
               </p>
-              <h1 className="truncate text-2xl font-extrabold tracking-tight sm:text-[34px] sm:leading-tight">{drName(profile?.full_name, true)}</h1>
-              <p className="mt-1 text-sm text-body sm:text-base">Voici un aperçu des demandes de consultation.</p>
+              <h1 className="truncate text-[22px] font-semibold leading-tight tracking-[-0.02em] text-navy sm:text-[26px]">{drName(profile?.full_name, true)}</h1>
+              <p className="mt-1 text-[13.5px] text-slate-500">Voici un aperçu des demandes de consultation.</p>
             </div>
             <Card className="flex shrink-0 items-center gap-2 px-3 py-2 xl:hidden">
               <CalendarDays className="size-5 text-primary" />
